@@ -49,6 +49,7 @@ class ClusterMetadata(object):
         self.need_all_topic_metadata = False
         self.unauthorized_topics = set()
         self.internal_topics = set()
+        self.missing_autocreate_topics = set()
         self.controller = None
 
         self.config = copy.copy(self.DEFAULT_CONFIG)
@@ -234,6 +235,8 @@ class ClusterMetadata(object):
         _new_unauthorized_topics = set()
         _new_internal_topics = set()
 
+        self.missing_autocreate_topics.clear()
+
         for topic_data in metadata.topics:
             if metadata.API_VERSION == 0:
                 error_code, topic, partitions = topic_data
@@ -254,8 +257,10 @@ class ClusterMetadata(object):
                             TopicPartition(topic, partition))
 
             elif error_type is Errors.LeaderNotAvailableError:
-                log.warning("Topic %s is not available during auto-create"
-                            " initialization", topic)
+               log.warn(
+                    "Topic {0!r} is not available during auto-create"
+                    " initialization".format(topic))
+               self.missing_autocreate_topics.add(topic)
             elif error_type is Errors.UnknownTopicOrPartitionError:
                 log.error("Topic %s not found in cluster metadata", topic)
             elif error_type is Errors.TopicAuthorizationFailedError:
