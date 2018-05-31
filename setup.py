@@ -44,7 +44,7 @@ setup(
     url="https://github.com/dpkp/kafka-python",
     license="Apache License 2.0",
     description="Pure Python client for Apache Kafka",
-    long_description=README,
+    long_description='This is a temporary fork of kafka-python maintained by Robinhood',
     keywords="apache kafka",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
