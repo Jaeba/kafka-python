@@ -6,6 +6,8 @@ __author__ = 'Dana Powers'
 __license__ = 'Apache License 2.0'
 __copyright__ = 'Copyright 2016 Dana Powers, David Arthur, and Contributors'
 
+__robinhood__ = True
+
 # Set default logging handler to avoid "No handler found" warnings.
 import logging
 try:  # Python 2.7+
