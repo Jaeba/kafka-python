@@ -6,16 +6,16 @@ from six.moves import xrange
 import six
 
 from . import unittest
-from kafka import (
+from rhkafka import (
     KafkaConsumer, MultiProcessConsumer, SimpleConsumer, create_message,
     create_gzip_message, KafkaProducer
 )
-from kafka.consumer.base import MAX_FETCH_BUFFER_SIZE_BYTES
-from kafka.errors import (
+from rhkafka.consumer.base import MAX_FETCH_BUFFER_SIZE_BYTES
+from rhkafka.errors import (
     ConsumerFetchSizeTooSmall, OffsetOutOfRangeError, UnsupportedVersionError,
     KafkaTimeoutError
 )
-from kafka.structs import (
+from rhkafka.structs import (
     ProduceRequestPayload, TopicPartition, OffsetAndTimestamp
 )
 

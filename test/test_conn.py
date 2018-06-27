@@ -8,12 +8,12 @@ import time
 import mock
 import pytest
 
-from kafka.conn import BrokerConnection, ConnectionStates, collect_hosts
-from kafka.protocol.api import RequestHeader
-from kafka.protocol.metadata import MetadataRequest
-from kafka.protocol.produce import ProduceRequest
+from rhkafka.conn import BrokerConnection, ConnectionStates, collect_hosts
+from rhkafka.protocol.api import RequestHeader
+from rhkafka.protocol.metadata import MetadataRequest
+from rhkafka.protocol.produce import ProduceRequest
 
-import kafka.common as Errors
+import rhkafka.common as Errors
 
 
 @pytest.fixture

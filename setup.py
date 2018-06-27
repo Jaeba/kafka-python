@@ -5,7 +5,7 @@ from setuptools import setup, Command, find_packages
 
 # Pull version from source without importing
 # since we can't import something we haven't built yet :)
-exec(open('kafka/version.py').read())
+exec(open('rhkafka/version.py').read())
 
 class Tox(Command):
 
@@ -41,7 +41,7 @@ setup(
     packages=find_packages(exclude=['test']),
     author="Dana Powers",
     author_email="dana.powers@gmail.com",
-    url="https://github.com/dpkp/kafka-python",
+    url="https://github.com/robinhoodmarkets/kafka-python",
     license="Apache License 2.0",
     description="Pure Python client for Apache Kafka",
     long_description='This is a temporary fork of kafka-python maintained by Robinhood',

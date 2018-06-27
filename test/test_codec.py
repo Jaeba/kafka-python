@@ -6,7 +6,7 @@ import struct
 import pytest
 from six.moves import xrange
 
-from kafka.codec import (
+from rhkafka.codec import (
     has_snappy, has_gzip, has_lz4,
     gzip_encode, gzip_decode,
     snappy_encode, snappy_decode,
@@ -34,7 +34,7 @@ def test_snappy():
 
 @pytest.mark.skipif(not has_snappy(), reason="Snappy not available")
 def test_snappy_detect_xerial():
-    import kafka as kafka1
+    import rhkafka as kafka1
     _detect_xerial_stream = kafka1.codec._detect_xerial_stream
 
     header = b'\x82SNAPPY\x00\x00\x00\x00\x01\x00\x00\x00\x01Some extra bytes'

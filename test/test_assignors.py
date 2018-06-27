@@ -3,9 +3,9 @@ from __future__ import absolute_import
 
 import pytest
 
-from kafka.coordinator.assignors.range import RangePartitionAssignor
-from kafka.coordinator.assignors.roundrobin import RoundRobinPartitionAssignor
-from kafka.coordinator.protocol import (
+from rhkafka.coordinator.assignors.range import RangePartitionAssignor
+from rhkafka.coordinator.assignors.roundrobin import RoundRobinPartitionAssignor
+from rhkafka.coordinator.protocol import (
     ConsumerProtocolMemberMetadata, ConsumerProtocolMemberAssignment)
 
 

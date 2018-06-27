@@ -4,23 +4,23 @@ import time
 
 import pytest
 
-from kafka.client_async import KafkaClient
-from kafka.structs import TopicPartition, OffsetAndMetadata
-from kafka.consumer.subscription_state import (
+from rhkafka.client_async import KafkaClient
+from rhkafka.structs import TopicPartition, OffsetAndMetadata
+from rhkafka.consumer.subscription_state import (
     SubscriptionState, ConsumerRebalanceListener)
-from kafka.coordinator.assignors.range import RangePartitionAssignor
-from kafka.coordinator.assignors.roundrobin import RoundRobinPartitionAssignor
-from kafka.coordinator.consumer import ConsumerCoordinator
-from kafka.coordinator.protocol import (
+from rhkafka.coordinator.assignors.range import RangePartitionAssignor
+from rhkafka.coordinator.assignors.roundrobin import RoundRobinPartitionAssignor
+from rhkafka.coordinator.consumer import ConsumerCoordinator
+from rhkafka.coordinator.protocol import (
     ConsumerProtocolMemberMetadata, ConsumerProtocolMemberAssignment)
-import kafka.errors as Errors
-from kafka.future import Future
-from kafka.metrics import Metrics
-from kafka.protocol.commit import (
+import rhkafka.errors as Errors
+from rhkafka.future import Future
+from rhkafka.metrics import Metrics
+from rhkafka.protocol.commit import (
     OffsetCommitRequest, OffsetCommitResponse,
     OffsetFetchRequest, OffsetFetchResponse)
-from kafka.protocol.metadata import MetadataResponse
-from kafka.util import WeakMethod
+from rhkafka.protocol.metadata import MetadataResponse
+from rhkafka.util import WeakMethod
 
 
 @pytest.fixture
@@ -357,8 +357,8 @@ def test_commit_offsets_sync(mocker, coordinator, offsets):
 def test_maybe_auto_commit_offsets_sync(mocker, api_version, group_id, enable,
                                         error, has_auto_commit, commit_offsets,
                                         warn, exc):
-    mock_warn = mocker.patch('kafka.coordinator.consumer.log.warning')
-    mock_exc = mocker.patch('kafka.coordinator.consumer.log.exception')
+    mock_warn = mocker.patch('rhkafka.coordinator.consumer.log.warning')
+    mock_exc = mocker.patch('rhkafka.coordinator.consumer.log.exception')
     client = KafkaClient(api_version=api_version)
     coordinator = ConsumerCoordinator(client, SubscriptionState(),
                                       Metrics(),

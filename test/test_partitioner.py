@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 
-from kafka.partitioner import DefaultPartitioner, Murmur2Partitioner, RoundRobinPartitioner
-from kafka.partitioner.hashed import murmur2
+from rhkafka.partitioner import DefaultPartitioner, Murmur2Partitioner, RoundRobinPartitioner
+from rhkafka.partitioner.hashed import murmur2
 
 
 def test_default_partitioner():

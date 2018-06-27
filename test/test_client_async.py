@@ -5,22 +5,22 @@ try:
     import selectors # pylint: disable=import-error
 except ImportError:
     # vendored backport module
-    import kafka.vendor.selectors34 as selectors
+    import rhkafka.vendor.selectors34 as selectors
 
 import socket
 import time
 
 import pytest
 
-from kafka.client_async import KafkaClient, IdleConnectionManager
-from kafka.conn import ConnectionStates
-import kafka.errors as Errors
-from kafka.future import Future
-from kafka.protocol.metadata import MetadataResponse, MetadataRequest
-from kafka.protocol.produce import ProduceRequest
-from kafka.structs import BrokerMetadata
-from kafka.cluster import ClusterMetadata
-from kafka.future import Future
+from rhkafka.client_async import KafkaClient, IdleConnectionManager
+from rhkafka.conn import ConnectionStates
+import rhkafka.errors as Errors
+from rhkafka.future import Future
+from rhkafka.protocol.metadata import MetadataResponse, MetadataRequest
+from rhkafka.protocol.produce import ProduceRequest
+from rhkafka.structs import BrokerMetadata
+from rhkafka.cluster import ClusterMetadata
+from rhkafka.future import Future
 
 
 @pytest.fixture

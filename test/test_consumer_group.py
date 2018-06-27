@@ -6,10 +6,10 @@ import time
 import pytest
 import six
 
-from kafka import SimpleClient
-from kafka.conn import ConnectionStates
-from kafka.consumer.group import KafkaConsumer
-from kafka.structs import TopicPartition
+from rhkafka import SimpleClient
+from rhkafka.conn import ConnectionStates
+from rhkafka.consumer.group import KafkaConsumer
+from rhkafka.structs import TopicPartition
 
 from test.conftest import version
 from test.testutil import random_string

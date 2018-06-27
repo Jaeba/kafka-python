@@ -6,8 +6,8 @@ import platform
 
 import pytest
 
-from kafka.producer.buffer import MessageSetBuffer
-from kafka.protocol.message import Message, MessageSet
+from rhkafka.producer.buffer import MessageSetBuffer
+from rhkafka.protocol.message import Message, MessageSet
 
 
 def test_buffer_close():

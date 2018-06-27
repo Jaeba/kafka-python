@@ -5,8 +5,8 @@ from . import unittest
 
 from mock import MagicMock, patch
 
-from kafka.context import OffsetCommitContext
-from kafka.errors import OffsetOutOfRangeError
+from rhkafka.context import OffsetCommitContext
+from rhkafka.errors import OffsetOutOfRangeError
 
 
 class TestOffsetCommitContext(unittest.TestCase):

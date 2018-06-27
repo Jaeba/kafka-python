@@ -3,7 +3,7 @@ from __future__ import absolute_import
 
 import pytest
 
-from kafka.consumer.subscription_state import SubscriptionState
+from rhkafka.consumer.subscription_state import SubscriptionState
 
 @pytest.mark.parametrize(('topic_name', 'expectation'), [
     (0, pytest.raises(TypeError)),

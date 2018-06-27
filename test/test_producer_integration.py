@@ -4,15 +4,15 @@ import uuid
 
 from six.moves import range
 
-from kafka import (
+from rhkafka import (
     SimpleProducer, KeyedProducer,
     create_message, create_gzip_message, create_snappy_message,
     RoundRobinPartitioner, HashedPartitioner
 )
-from kafka.codec import has_snappy
-from kafka.errors import UnknownTopicOrPartitionError, LeaderNotAvailableError
-from kafka.producer.base import Producer
-from kafka.structs import FetchRequestPayload, ProduceRequestPayload
+from rhkafka.codec import has_snappy
+from rhkafka.errors import UnknownTopicOrPartitionError, LeaderNotAvailableError
+from rhkafka.producer.base import Producer
+from rhkafka.structs import FetchRequestPayload, ProduceRequestPayload
 
 from test.fixtures import ZookeeperFixture, KafkaFixture
 from test.testutil import KafkaIntegrationTestCase, kafka_versions

@@ -10,7 +10,7 @@ import sys
 import threading
 import traceback
 
-from kafka import KafkaConsumer, KafkaProducer
+from rhkafka import KafkaConsumer, KafkaProducer
 from test.fixtures import KafkaFixture, ZookeeperFixture
 
 logging.basicConfig(level=logging.ERROR)

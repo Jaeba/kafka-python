@@ -7,7 +7,7 @@ KafkaConsumer
 
 .. code:: python
 
-    from kafka import KafkaConsumer
+    from rhkafka import KafkaConsumer
 
     # To consume latest messages and auto-commit offsets
     consumer = KafkaConsumer('my-topic',
@@ -55,8 +55,8 @@ KafkaProducer
 
 .. code:: python
 
-    from kafka import KafkaProducer
-    from kafka.errors import KafkaError
+    from rhkafka import KafkaProducer
+    from rhkafka.errors import KafkaError
 
     producer = KafkaProducer(bootstrap_servers=['broker1:1234'])
 

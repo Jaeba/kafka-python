@@ -7,7 +7,7 @@ SimpleConsumer (DEPRECATED)
 
 .. code:: python
 
-    from kafka import SimpleProducer, SimpleClient
+    from rhkafka import SimpleProducer, SimpleClient
 
     # To consume messages
     client = SimpleClient('localhost:9092')
@@ -19,7 +19,7 @@ SimpleConsumer (DEPRECATED)
 
 
     # Use multiprocessing for parallel consumers
-    from kafka import MultiProcessConsumer
+    from rhkafka import MultiProcessConsumer
 
     # This will split the number of partitions among two processes
     consumer = MultiProcessConsumer(client, "my-group", "my-topic", num_procs=2)
@@ -45,7 +45,7 @@ Asynchronous Mode
 
 .. code:: python
 
-    from kafka import SimpleProducer, SimpleClient
+    from rhkafka import SimpleProducer, SimpleClient
 
     # To send messages asynchronously
     client = SimpleClient('localhost:9092')
@@ -69,7 +69,7 @@ Synchronous Mode
 
 .. code:: python
 
-    from kafka import SimpleProducer, SimpleClient
+    from rhkafka import SimpleProducer, SimpleClient
 
     # To send messages synchronously
     client = SimpleClient('localhost:9092')
@@ -103,7 +103,7 @@ KeyedProducer (DEPRECATED)
 
 .. code:: python
 
-    from kafka import (
+    from rhkafka import (
         SimpleClient, KeyedProducer,
         Murmur2Partitioner, RoundRobinPartitioner)
 
@@ -128,10 +128,10 @@ SimpleClient (DEPRECATED)
 .. code:: python
 
     import time
-    from kafka import SimpleClient
-    from kafka.errors import LeaderNotAvailableError, NotLeaderForPartitionError
-    from kafka.protocol import create_message
-    from kafka.structs import ProduceRequestPayload
+    from rhkafka import SimpleClient
+    from rhkafka.errors import LeaderNotAvailableError, NotLeaderForPartitionError
+    from rhkafka.protocol import create_message
+    from rhkafka.structs import ProduceRequestPayload
 
     kafka = SimpleClient('localhost:9092')
     payload = ProduceRequestPayload(topic='my-topic', partition=0,

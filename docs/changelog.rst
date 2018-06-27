@@ -170,7 +170,7 @@ Logging / Error Messages
 * Add more debug-level connection logging (dpkp)
 * Do not need str(self) when formatting to %s (dpkp)
 * Add new broker response errors (dpkp)
-* Small style fixes in kafka.errors (dpkp)
+* Small style fixes in rhkafka.errors (dpkp)
 * Include the node id in BrokerConnection logging (dpkp 1009)
 * Replace %s with %r in producer debug log message (chekunkov 973)
 
@@ -202,7 +202,7 @@ Legacy Client
 Core
 ----
 * Add kafka.serializer interfaces (dpkp 912)
-* from kafka import ConsumerRebalanceListener, OffsetAndMetadata
+* from rhkafka import ConsumerRebalanceListener, OffsetAndMetadata
 * Use 0.10.0.1 for integration tests (dpkp 803)
 
 Consumer
@@ -472,7 +472,7 @@ Internals
 * Add initial metrics implementation (zackdever PR 637)
 * KAFKA-2136: support Fetch and Produce v1 (throttle_time_ms)
 * Use version-indexed lists for request/response protocol structs (dpkp PR 630)
-* Split kafka.common into kafka.structs and kafka.errors
+* Split kafka.common into kafka.structs and rhkafka.errors
 * Handle partial socket send() (dpkp PR 611)
 * Fix windows support (dpkp PR 603)
 * IPv6 support (TimEvens PR 615; Roguelazer PR 642)
@@ -606,7 +606,7 @@ Producers
 Clients
 -------
 * synchronous KafkaClient renamed to SimpleClient. For backwards compatibility, you
-  will get a SimpleClient via 'from kafka import KafkaClient'. This will change in
+  will get a SimpleClient via 'from rhkafka import KafkaClient'. This will change in
   a future release.
 * All client calls use non-blocking IO under the hood.
 * Add probe method check_version() to infer broker versions.

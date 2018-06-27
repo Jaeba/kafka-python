@@ -2,12 +2,12 @@ import logging
 import os
 import time
 
-from kafka import SimpleClient, SimpleConsumer, KeyedProducer
-from kafka.errors import (
+from rhkafka import SimpleClient, SimpleConsumer, KeyedProducer
+from rhkafka.errors import (
     FailedPayloadsError, ConnectionError, RequestTimedOutError,
     NotLeaderForPartitionError)
-from kafka.producer.base import Producer
-from kafka.structs import TopicPartition
+from rhkafka.producer.base import Producer
+from rhkafka.structs import TopicPartition
 
 from test.fixtures import ZookeeperFixture, KafkaFixture
 from test.testutil import KafkaIntegrationTestCase, random_string

@@ -11,8 +11,8 @@ import uuid
 from six.moves import xrange
 from . import unittest
 
-from kafka import SimpleClient
-from kafka.structs import OffsetRequestPayload
+from rhkafka import SimpleClient
+from rhkafka.structs import OffsetRequestPayload
 
 __all__ = [
     'random_string',

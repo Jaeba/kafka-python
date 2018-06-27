@@ -5,14 +5,14 @@ from operator import itemgetter
 import six
 from . import unittest
 
-from kafka import SimpleClient
-from kafka.errors import (
+from rhkafka import SimpleClient
+from rhkafka.errors import (
     KafkaUnavailableError, LeaderNotAvailableError, KafkaTimeoutError,
     UnknownTopicOrPartitionError, ConnectionError, FailedPayloadsError)
-from kafka.future import Future
-from kafka.protocol import KafkaProtocol, create_message
-from kafka.protocol.metadata import MetadataResponse
-from kafka.structs import ProduceRequestPayload, BrokerMetadata, TopicPartition
+from rhkafka.future import Future
+from rhkafka.protocol import KafkaProtocol, create_message
+from rhkafka.protocol.metadata import MetadataResponse
+from rhkafka.structs import ProduceRequestPayload, BrokerMetadata, TopicPartition
 
 
 NO_ERROR = 0
@@ -111,8 +111,8 @@ class TestSimpleClient(unittest.TestCase):
                 self.assertEqual('valid response', resp)
                 mocked_conns[('kafka02', 9092)].recv.assert_called_once_with()
 
-    @patch('kafka.SimpleClient._get_conn')
-    @patch('kafka.client.KafkaProtocol')
+    @patch('rhkafka.SimpleClient._get_conn')
+    @patch('rhkafka.client.KafkaProtocol')
     def test_load_metadata(self, protocol, conn):
 
         mock_conn(conn)
@@ -162,8 +162,8 @@ class TestSimpleClient(unittest.TestCase):
         # This should not raise
         client.load_metadata_for_topics('topic_no_leader')
 
-    @patch('kafka.SimpleClient._get_conn')
-    @patch('kafka.client.KafkaProtocol')
+    @patch('rhkafka.SimpleClient._get_conn')
+    @patch('rhkafka.client.KafkaProtocol')
     def test_has_metadata_for_topic(self, protocol, conn):
 
         mock_conn(conn)
@@ -193,8 +193,8 @@ class TestSimpleClient(unittest.TestCase):
         # Topic with partition metadata, but no leaders return True
         self.assertTrue(client.has_metadata_for_topic('topic_noleaders'))
 
-    @patch('kafka.SimpleClient._get_conn')
-    @patch('kafka.client.KafkaProtocol.decode_metadata_response')
+    @patch('rhkafka.SimpleClient._get_conn')
+    @patch('rhkafka.client.KafkaProtocol.decode_metadata_response')
     def test_ensure_topic_exists(self, decode_metadata_response, conn):
 
         mock_conn(conn)
@@ -226,8 +226,8 @@ class TestSimpleClient(unittest.TestCase):
         # This should not raise
         client.ensure_topic_exists('topic_noleaders', timeout=1)
 
-    @patch('kafka.SimpleClient._get_conn')
-    @patch('kafka.client.KafkaProtocol')
+    @patch('rhkafka.SimpleClient._get_conn')
+    @patch('rhkafka.client.KafkaProtocol')
     def test_get_leader_for_partitions_reloads_metadata(self, protocol, conn):
         "Get leader for partitions reload metadata if it is not available"
 
@@ -265,8 +265,8 @@ class TestSimpleClient(unittest.TestCase):
             TopicPartition('topic_one_partition', 0): brokers[0]},
             client.topics_to_brokers)
 
-    @patch('kafka.SimpleClient._get_conn')
-    @patch('kafka.client.KafkaProtocol')
+    @patch('rhkafka.SimpleClient._get_conn')
+    @patch('rhkafka.client.KafkaProtocol')
     def test_get_leader_for_unassigned_partitions(self, protocol, conn):
 
         mock_conn(conn)
@@ -293,8 +293,8 @@ class TestSimpleClient(unittest.TestCase):
         with self.assertRaises(UnknownTopicOrPartitionError):
             client._get_leader_for_partition('topic_unknown', 0)
 
-    @patch('kafka.SimpleClient._get_conn')
-    @patch('kafka.client.KafkaProtocol')
+    @patch('rhkafka.SimpleClient._get_conn')
+    @patch('rhkafka.client.KafkaProtocol')
     def test_get_leader_exceptions_when_noleader(self, protocol, conn):
 
         mock_conn(conn)
@@ -342,7 +342,7 @@ class TestSimpleClient(unittest.TestCase):
         self.assertEqual(brokers[1], client._get_leader_for_partition('topic_noleader', 1))
 
     @patch.object(SimpleClient, '_get_conn')
-    @patch('kafka.client.KafkaProtocol')
+    @patch('rhkafka.client.KafkaProtocol')
     def test_send_produce_request_raises_when_noleader(self, protocol, conn):
         mock_conn(conn)
 
@@ -369,8 +369,8 @@ class TestSimpleClient(unittest.TestCase):
         with self.assertRaises(FailedPayloadsError):
             client.send_produce_request(requests)
 
-    @patch('kafka.SimpleClient._get_conn')
-    @patch('kafka.client.KafkaProtocol')
+    @patch('rhkafka.SimpleClient._get_conn')
+    @patch('rhkafka.client.KafkaProtocol')
     def test_send_produce_request_raises_when_topic_unknown(self, protocol, conn):
 
         mock_conn(conn)

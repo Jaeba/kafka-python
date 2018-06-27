@@ -1,8 +1,8 @@
 import os
 
-from kafka.errors import KafkaTimeoutError
-from kafka.protocol import create_message
-from kafka.structs import (
+from rhkafka.errors import KafkaTimeoutError
+from rhkafka.protocol import create_message
+from rhkafka.structs import (
     FetchRequestPayload, OffsetCommitRequestPayload, OffsetFetchRequestPayload,
     ProduceRequestPayload)
 

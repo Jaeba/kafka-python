@@ -8,12 +8,12 @@ import time
 from mock import MagicMock, patch
 from . import unittest
 
-from kafka import SimpleClient, SimpleProducer, KeyedProducer
-from kafka.errors import (
+from rhkafka import SimpleClient, SimpleProducer, KeyedProducer
+from rhkafka.errors import (
     AsyncProducerQueueFull, FailedPayloadsError, NotLeaderForPartitionError)
-from kafka.producer.base import Producer, _send_upstream
-from kafka.protocol import CODEC_NONE
-from kafka.structs import (
+from rhkafka.producer.base import Producer, _send_upstream
+from rhkafka.protocol import CODEC_NONE
+from rhkafka.structs import (
     ProduceResponsePayload, RetryOptions, TopicPartition)
 
 from six.moves import queue, xrange
@@ -70,7 +70,7 @@ class TestKafkaProducer(unittest.TestCase):
         producer.send_messages(topic, b'hi')
         assert client.send_produce_request.called
 
-    @patch('kafka.producer.base._send_upstream')
+    @patch('rhkafka.producer.base._send_upstream')
     def test_producer_async_queue_overfilled(self, mock):
         queue_size = 2
         producer = Producer(MagicMock(), async=True,

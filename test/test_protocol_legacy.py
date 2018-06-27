@@ -6,15 +6,15 @@ import six
 from mock import patch, sentinel
 from . import unittest
 
-from kafka.codec import has_snappy, gzip_decode, snappy_decode
-from kafka.errors import (
+from rhkafka.codec import has_snappy, gzip_decode, snappy_decode
+from rhkafka.errors import (
     ChecksumError, KafkaUnavailableError, UnsupportedCodecError,
     ConsumerFetchSizeTooSmall, ProtocolError)
-from kafka.protocol import (
+from rhkafka.protocol import (
     ATTRIBUTE_CODEC_MASK, CODEC_NONE, CODEC_GZIP, CODEC_SNAPPY, KafkaProtocol,
     create_message, create_gzip_message, create_snappy_message,
     create_message_set)
-from kafka.structs import (
+from rhkafka.structs import (
     OffsetRequestPayload, OffsetResponsePayload,
     OffsetCommitRequestPayload, OffsetCommitResponsePayload,
     OffsetFetchRequestPayload, OffsetFetchResponsePayload,
@@ -358,11 +358,11 @@ class TestProtocol(unittest.TestCase):
     def test_encode_produce_request(self):
         requests = [
             ProduceRequestPayload("topic1", 0, [
-                kafka.protocol.message.Message(b"a"),
-                kafka.protocol.message.Message(b"b")
+                rhkafka.protocol.message.Message(b"a"),
+                rhkafka.protocol.message.Message(b"b")
             ]),
             ProduceRequestPayload("topic2", 1, [
-                kafka.protocol.message.Message(b"c")
+                rhkafka.protocol.message.Message(b"c")
             ])
         ]
 
@@ -807,12 +807,12 @@ class TestProtocol(unittest.TestCase):
 
     @contextmanager
     def mock_create_message_fns(self):
-        import kafka.protocol
-        with patch.object(kafka.protocol.legacy, "create_message",
+        import rhkafka.protocol
+        with patch.object(rhkafka.protocol.legacy, "create_message",
                                return_value=sentinel.message):
-            with patch.object(kafka.protocol.legacy, "create_gzip_message",
+            with patch.object(rhkafka.protocol.legacy, "create_gzip_message",
                                    return_value=sentinel.gzip_message):
-                with patch.object(kafka.protocol.legacy, "create_snappy_message",
+                with patch.object(rhkafka.protocol.legacy, "create_snappy_message",
                                        return_value=sentinel.snappy_message):
                     yield
 

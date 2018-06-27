@@ -2,7 +2,7 @@
 import threading, logging, time
 import multiprocessing
 
-from kafka import KafkaConsumer, KafkaProducer
+from rhkafka import KafkaConsumer, KafkaProducer
 
 
 class Producer(threading.Thread):

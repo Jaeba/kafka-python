@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import threading, logging, time
 
-from kafka import KafkaConsumer, KafkaProducer
+from rhkafka import KafkaConsumer, KafkaProducer
 
 msg_size = 524288
 

@@ -9,7 +9,7 @@ import sys
 import threading
 import traceback
 
-from kafka import KafkaProducer
+from rhkafka import KafkaProducer
 from test.fixtures import KafkaFixture, ZookeeperFixture
 
 

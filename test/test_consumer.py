@@ -3,11 +3,11 @@ import sys
 from mock import MagicMock, patch
 from . import unittest
 
-from kafka import SimpleConsumer, KafkaConsumer, MultiProcessConsumer
-from kafka.errors import (
+from rhkafka import SimpleConsumer, KafkaConsumer, MultiProcessConsumer
+from rhkafka.errors import (
     FailedPayloadsError, KafkaConfigurationError, NotLeaderForPartitionError,
     UnknownTopicOrPartitionError)
-from kafka.structs import (
+from rhkafka.structs import (
     FetchResponsePayload, OffsetAndMessage, OffsetFetchResponsePayload)
 
 

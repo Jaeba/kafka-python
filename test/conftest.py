@@ -33,10 +33,10 @@ def kafka_broker(version, zookeeper, request):
 
 @pytest.fixture
 def conn(mocker):
-    from kafka.conn import ConnectionStates
-    from kafka.future import Future
-    from kafka.protocol.metadata import MetadataResponse
-    conn = mocker.patch('kafka.client_async.BrokerConnection')
+    from rhkafka.conn import ConnectionStates
+    from rhkafka.future import Future
+    from rhkafka.protocol.metadata import MetadataResponse
+    conn = mocker.patch('rhkafka.client_async.BrokerConnection')
     conn.return_value = conn
     conn.state = ConnectionStates.CONNECTED
     conn.send.return_value = Future().success(

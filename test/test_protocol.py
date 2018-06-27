@@ -5,12 +5,12 @@ import struct
 import pytest
 import six
 
-from kafka.protocol.api import RequestHeader
-from kafka.protocol.commit import GroupCoordinatorRequest
-from kafka.protocol.fetch import FetchRequest, FetchResponse
-from kafka.protocol.message import Message, MessageSet, PartialMessage
-from kafka.protocol.metadata import MetadataRequest
-from kafka.protocol.types import Int16, Int32, Int64, String
+from rhkafka.protocol.api import RequestHeader
+from rhkafka.protocol.commit import GroupCoordinatorRequest
+from rhkafka.protocol.fetch import FetchRequest, FetchResponse
+from rhkafka.protocol.message import Message, MessageSet, PartialMessage
+from rhkafka.protocol.metadata import MetadataRequest
+from rhkafka.protocol.types import Int16, Int32, Int64, String
 
 
 def test_create_message():

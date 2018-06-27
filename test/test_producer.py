@@ -5,8 +5,8 @@ import threading
 
 import pytest
 
-from kafka import KafkaConsumer, KafkaProducer
-from kafka.producer.buffer import SimpleBufferPool
+from rhkafka import KafkaConsumer, KafkaProducer
+from rhkafka.producer.buffer import SimpleBufferPool
 from test.conftest import version
 from test.testutil import random_string
 

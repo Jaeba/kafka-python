@@ -5,16 +5,16 @@ import io
 
 import pytest
 
-from kafka.client_async import KafkaClient
-from kafka.cluster import ClusterMetadata
-import kafka.errors as Errors
-from kafka.future import Future
-from kafka.metrics import Metrics
-from kafka.producer.buffer import MessageSetBuffer
-from kafka.protocol.produce import ProduceRequest
-from kafka.producer.record_accumulator import RecordAccumulator, RecordBatch
-from kafka.producer.sender import Sender
-from kafka.structs import TopicPartition, OffsetAndMetadata
+from rhkafka.client_async import KafkaClient
+from rhkafka.cluster import ClusterMetadata
+import rhkafka.errors as Errors
+from rhkafka.future import Future
+from rhkafka.metrics import Metrics
+from rhkafka.producer.buffer import MessageSetBuffer
+from rhkafka.protocol.produce import ProduceRequest
+from rhkafka.producer.record_accumulator import RecordAccumulator, RecordBatch
+from rhkafka.producer.sender import Sender
+from rhkafka.structs import TopicPartition, OffsetAndMetadata
 
 
 @pytest.fixture
