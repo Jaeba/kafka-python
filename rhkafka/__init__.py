@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-__title__ = 'kafka'
+__title__ = 'rhkafka'
 from .version import __version__
 __author__ = 'Dana Powers'
 __license__ = 'Apache License 2.0'
